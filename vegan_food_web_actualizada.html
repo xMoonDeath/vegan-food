@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vegan Food: alternativa vegetal, consciente y sostenible a los productos cárnicos tradicionales.">
+  <title>Vegan Food | Equilibrando nuestra salud y la del planeta</title>
+  <style>
+    :root {
+      --forest: #183f2b;
+      --green: #2f6845;
+      --leaf: #78a66a;
+      --sage: #dce8d5;
+      --cream: #f8f5ec;
+      --paper: #fffdf8;
+      --ink: #24352a;
+      --muted: #647267;
+      --orange: #d99a54;
+      --line: #e5e9df;
+      --shadow: 0 18px 45px rgba(24, 63, 43, .10);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; font-family: "Trebuchet MS", Arial, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.65; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -.03em; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.3rem); max-width: 760px; margin-bottom: 24px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px; color: var(--forest); }
+    h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    p { color: var(--muted); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 17px; }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--orange); }
+    .section { padding: 100px 0; }
+    .section-head { max-width: 690px; margin-bottom: 42px; }
+    .section-head p { font-size: 1.08rem; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--forest); color: white; font-weight: 700; border: 1px solid var(--forest); transition: .2s ease; cursor: pointer; font: inherit; font-weight: 700; }
+    .btn:hover { background: var(--green); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--forest); }
+    .btn-outline:hover { color: white; }
+    .topbar { background: var(--forest); color: #eaf2e6; font-size: .83rem; padding: 8px 0; text-align: center; letter-spacing: .03em; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,253,248,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(24,63,43,.08); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: flex; align-items: center; gap: 11px; color: var(--forest); font-weight: 900; font-size: 1.18rem; letter-spacing: -.04em; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; background: var(--sage); border-radius: 50% 50% 50% 12px; font-size: 1.4rem; }
+    .brand small { display: block; color: var(--muted); font-size: .62rem; letter-spacing: .12em; font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: 27px; font-size: .92rem; font-weight: 700; color: #4d5f51; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links .nav-cta { color: white; background: var(--forest); padding: 10px 16px; border-radius: 999px; }
+    .menu-toggle { display: none; border: 0; background: var(--sage); color: var(--forest); border-radius: 12px; padding: 10px 12px; font-size: 1.25rem; cursor: pointer; }
+    .hero { background: var(--cream); position: relative; overflow: hidden; padding: 78px 0 88px; }
+    .hero::after { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: #e6eddc; right: -160px; top: -150px; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 50px; position: relative; z-index: 1; }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero-copy { font-size: 1.12rem; max-width: 580px; margin-bottom: 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 35px; }
+    .hero-notes { display: flex; flex-wrap: wrap; gap: 20px; font-size: .85rem; color: var(--green); font-weight: 700; }
+    .hero-notes span { display: flex; align-items: center; gap: 7px; }
+    .hero-image-wrap { position: relative; }
+    .hero-image { height: 520px; border-radius: 48% 48% 24px 24px; box-shadow: var(--shadow); }
+    .image-note { position: absolute; left: -25px; bottom: 28px; max-width: 220px; background: white; padding: 17px 20px; border-radius: 18px; box-shadow: var(--shadow); }
+    .image-note strong { color: var(--forest); display: block; }
+    .image-note span { color: var(--muted); font-size: .84rem; }
+    .stats { background: var(--forest); color: white; padding: 27px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
+    .stat { padding: 8px 16px; border-right: 1px solid rgba(255,255,255,.2); }
+    .stat:last-child { border: 0; }
+    .stat strong { display: block; font-size: 1.08rem; margin-bottom: 3px; }
+    .stat span { font-size: .86rem; color: #d0dfd1; }
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 65px; align-items: center; }
+    .about-photo { height: 520px; border-radius: var(--radius); }
+    .about-photo-wrap { position: relative; }
+    .photo-caption { position: absolute; bottom: 18px; left: 18px; right: 18px; padding: 16px 18px; background: rgba(255,253,248,.94); border-radius: 15px; font-size: .9rem; color: var(--forest); font-weight: 700; }
+    .mission-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 28px; }
+    .info-card { background: var(--cream); border-radius: 18px; padding: 22px; border: 1px solid var(--line); }
+    .info-card .icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .info-card h3 { color: var(--forest); }
+    .info-card p { font-size: .92rem; margin-bottom: 0; }
+    .team-note { margin-top: 22px; padding: 17px 20px; border-left: 3px solid var(--orange); background: #fbf7ee; font-size: .92rem; }
+    .products { background: #f6f7f0; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .product-card { background: white; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: .25s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .product-card img { height: 245px; }
+    .product-body { padding: 24px; }
+    .product-tag { display: inline-block; background: var(--sage); color: var(--forest); border-radius: 999px; padding: 5px 10px; font-size: .72rem; font-weight: 800; margin-bottom: 13px; }
+    .product-body p { font-size: .94rem; min-height: 76px; }
+    .product-foot { border-top: 1px solid var(--line); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .85rem; color: var(--green); font-weight: 800; }
+    .product-foot a { text-decoration: underline; text-underline-offset: 3px; }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 36px; }
+    .process-step { padding: 23px; border: 1px solid var(--line); border-radius: 18px; }
+    .step-num { display: grid; place-items: center; width: 39px; height: 39px; background: var(--sage); color: var(--forest); border-radius: 50%; font-weight: 900; margin-bottom: 17px; }
+    .process-step p { font-size: .9rem; margin-bottom: 0; }
+    .impact { background: var(--forest); color: white; }
+    .impact h2 { color: white; }
+    .impact .section-head p { color: #d4e0d4; }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .impact-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 27px; }
+    .impact-card .icon { font-size: 1.8rem; margin-bottom: 18px; }
+    .impact-card h3 { color: white; }
+    .impact-card p { color: #d4e0d4; font-size: .94rem; margin-bottom: 0; }
+    .impact-bottom { margin-top: 28px; padding: 22px 25px; border-radius: 16px; background: #254d35; color: #e5efe3; }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 55px; align-items: start; }
+    .contact-info { background: var(--cream); border-radius: var(--radius); padding: 30px; }
+    .contact-line { display: flex; gap: 13px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .contact-line:last-child { border: 0; }
+    .contact-icon { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; background: var(--sage); border-radius: 13px; }
+    .contact-line strong { display: block; color: var(--forest); font-size: .94rem; }
+    .contact-line span, .contact-line a { color: var(--muted); font-size: .9rem; overflow-wrap: anywhere; }
+    form { display: grid; gap: 17px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    label { display: block; font-size: .88rem; font-weight: 800; color: var(--forest); margin-bottom: 7px; }
+    input, textarea, select { width: 100%; padding: 14px 15px; border: 1px solid #dce2d7; background: white; border-radius: 12px; color: var(--ink); font: inherit; outline: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px rgba(120,166,106,.15); }
+    textarea { min-height: 135px; resize: vertical; }
+    .form-help { font-size: .8rem; color: var(--muted); margin: 0; }
+    .form-status { display: none; padding: 13px 15px; background: var(--sage); color: var(--forest); border-radius: 12px; font-size: .9rem; }
+    .closing { padding: 70px 0; background: var(--cream); text-align: center; }
+    .closing h2 { max-width: 780px; margin: 0 auto 18px; }
+    .closing p { max-width: 650px; margin: 0 auto 25px; }
+    footer { background: #102d1e; color: white; padding: 35px 0; }
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+    footer .brand { color: white; }
+    footer .brand small { color: #c0d0c2; }
+    footer p { color: #c0d0c2; font-size: .82rem; margin: 0; }
+    .footer-links { display: flex; gap: 18px; font-size: .85rem; color: #e2ebe0; flex-wrap: wrap; }
+    .placeholder { font-size: .82rem; color: #8b7252; }
+    @media (max-width: 900px) {
+      .nav-links { gap: 15px; font-size: .85rem; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 38px; }
+      .hero-image-wrap { max-width: 620px; width: 100%; margin: auto; }
+      .hero-image { height: 420px; }
+      .about-photo { height: 390px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { gap: 30px; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 30px, 1160px); }
+      .section { padding: 70px 0; }
+      .topbar { font-size: .73rem; }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--paper); padding: 18px 22px 25px; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .nav-links .nav-cta { text-align: center; margin-top: 7px; padding: 12px; }
+      .hero { padding: 60px 0 65px; }
+      .hero-image { height: 350px; }
+      .image-note { left: 10px; bottom: 12px; }
+      .stats-grid { grid-template-columns: 1fr; gap: 0; }
+      .stat { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.2); padding: 13px; }
+      .stat:last-child { border-bottom: 0; }
+      .mission-vision, .product-grid, .process-grid, .impact-grid, .form-row { grid-template-columns: 1fr; }
+      .product-card img { height: 235px; }
+      .product-body p { min-height: 0; }
+      .footer-grid { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Alimentación consciente · Alternativas vegetales · Compromiso con el planeta</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Vegan Food, ir al inicio">
+        <span class="brand-mark">🌿</span>
+        <span>VEGAN FOOD<small>ALIMENTACIÓN CON PROPÓSITO</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#sostenibilidad">Sostenibilidad</a>
+        <a class="nav-cta" href="#contacto">Contáctenos ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Una nueva forma de alimentarnos</span>
+          <h1>Equilibrando nuestra salud <em>y la del planeta.</em></h1>
+          <p class="hero-copy">En Vegan Food elaboramos alternativas cárnicas de origen vegetal, hechas con ingredientes como legumbres, soya, arveja y lenteja. Queremos demostrar que es posible disfrutar nuevas opciones de alimentación mientras promovemos un consumo más consciente y sostenible.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#productos">Conoce nuestros productos <span>→</span></a>
+            <a class="btn btn-outline" href="#nosotros">Conoce el proyecto</a>
+          </div>
+          <div class="hero-notes">
+            <span>✓ Ingredientes de origen vegetal</span>
+            <span>✓ Consumo responsable</span>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1100&q=85" alt="Mesa con vegetales frescos y alimentos de origen vegetal">
+          <div class="image-note"><strong>Pequeñas decisiones, grandes cambios.</strong><span>Elegir diferente también puede cuidar nuestro entorno.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Principios de Vegan Food">
+      <div class="container stats-grid">
+        <div class="stat"><strong>Origen vegetal</strong><span>Una alternativa a los productos cárnicos tradicionales</span></div>
+        <div class="stat"><strong>Conciencia ambiental</strong><span>Promovemos hábitos de consumo responsables</span></div>
+        <div class="stat"><strong>Emprendimiento local</strong><span>Una iniciativa desarrollada en Tuluá, Valle del Cauca</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85" alt="Equipo de trabajo reunido colaborando en un proyecto">
+          <div class="photo-caption">Un equipo con una idea en común: impulsar una alimentación más consciente.</div>
+        </div>
+        <div>
+          <span class="eyebrow">Quiénes somos</span>
+          <h2>Una idea que nace para hacer las cosas de otra manera.</h2>
+          <p>Vegan Food es un emprendimiento académico enfocado en la elaboración y promoción de productos cárnicos vegetales. El proyecto surge como una alternativa frente a los impactos ambientales asociados con la ganadería extensiva, como la deforestación, la pérdida de biodiversidad, la degradación del suelo y las emisiones de gases de efecto invernadero.</p>
+          <p>Mediante la investigación, las pruebas de preparación y la evaluación de las preferencias de posibles consumidores, buscamos desarrollar productos atractivos y aportar a una cultura de consumo responsable.</p>
+          <div class="mission-vision">
+            <article class="info-card">
+              <div class="icon">🌱</div>
+              <h3>Misión</h3>
+              <p>Elaborar y promover productos cárnicos de origen vegetal como una alternativa sostenible, fomentando el consumo responsable y la conciencia sobre el cuidado del medio ambiente.</p>
+            </article>
+            <article class="info-card">
+              <div class="icon">🌎</div>
+              <h3>Visión</h3>
+              <p>Consolidarnos como una iniciativa reconocida por ofrecer alternativas vegetales innovadoras, ampliar nuestro alcance comercial y contribuir a hábitos de alimentación más sostenibles.</p>
+            </article>
+          </div>
+          <div class="team-note"><strong>Equipo emprendedor:</strong> Laura Pérez, administradora y coordinadora de producción y empaquetado; Manuela Domínguez, vendedora y asesora; y Dayana López, auxiliar de producción y empaquetado. <span class="placeholder">Verifica los nombres y cargos antes de publicar.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products" id="productos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Nuestro catálogo</span>
+          <h2>Alternativas vegetales para disfrutar de nuevas posibilidades.</h2>
+          <p>Conoce las líneas de producto planteadas en el proyecto Vegan Food. Las fotografías son ilustrativas; reemplázalas por imágenes reales de las muestras que elaboraron para su proyecto de grado.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=900&q=85" alt="Hamburguesa vegetal servida con vegetales frescos">
+            <div class="product-body">
+              <span class="product-tag">PRODUCTO 01</span>
+              <h3>Hamburguesa vegetal</h3>
+              <p>Una alternativa vegetal pensada para preparar hamburguesas y disfrutar una opción diferente en comidas cotidianas.</p>
+              <div class="product-foot"><span>Elaboración vegetal</span><a href="#contacto">Consultar →</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1593001874117-c99c800e3eb4?auto=format&fit=crop&w=900&q=85" alt="Falafel vegetal servido con hierbas y acompañamientos">
+            <div class="product-body">
+              <span class="product-tag">PRODUCTO 02</span>
+              <h3>Falafel</h3>
+              <p>Preparación de origen vegetal basada en legumbres y hierbas, ideal para acompañar distintas comidas.</p>
+              <div class="product-foot"><span>Legumbres y hierbas</span><a href="#contacto">Consultar →</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?auto=format&fit=crop&w=900&q=85" alt="Salchichas vegetales con acompañamientos">
+            <div class="product-body">
+              <span class="product-tag">PRODUCTO 03</span>
+              <h3>Salchicha vegetal</h3>
+              <p>Una opción de origen vegetal creada para ampliar las posibilidades de preparación y consumo.</p>
+              <div class="product-foot"><span>Alternativa vegetal</span><a href="#contacto">Consultar →</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="process-grid" aria-label="Etapas de desarrollo del producto">
+          <div class="process-step"><div class="step-num">1</div><h3>Investigación</h3><p>Conocemos gustos, preferencias y aceptación de los posibles consumidores.</p></div>
+          <div class="process-step"><div class="step-num">2</div><h3>Preparación</h3><p>Probamos ingredientes vegetales como legumbres, soya, arveja y lenteja.</p></div>
+          <div class="process-step"><div class="step-num">3</div><h3>Evaluación</h3><p>Revisamos características, presentación y opiniones sobre los productos.</p></div>
+          <div class="process-step"><div class="step-num">4</div><h3>Mejora continua</h3><p>Buscamos ajustar las recetas y fortalecer el modelo de negocio sostenible.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section impact" id="sostenibilidad">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" style="color:#d8e7d4">Nuestro compromiso</span>
+          <h2>Alimentarnos también es una forma de cuidar el entorno.</h2>
+          <p>Vegan Food busca generar conciencia sobre los efectos ambientales de la ganadería extensiva y mostrar alternativas de consumo basadas en ingredientes vegetales.</p>
+        </div>
+        <div class="impact-grid">
+          <article class="impact-card"><div class="icon">🌳</div><h3>Recursos naturales</h3><p>Promovemos alternativas alimentarias que pueden ayudar a disminuir la presión sobre recursos como el agua y la tierra.</p></article>
+          <article class="impact-card"><div class="icon">🦋</div><h3>Biodiversidad</h3><p>Buscamos sensibilizar sobre la deforestación, la pérdida de biodiversidad y la degradación de los ecosistemas.</p></article>
+          <article class="impact-card"><div class="icon">♻️</div><h3>Consumo responsable</h3><p>Impulsamos mejores hábitos de consumo y el manejo adecuado de los residuos generados durante la producción.</p></article>
+        </div>
+        <div class="impact-bottom"><strong>Compromiso del proyecto:</strong> desarrollar una propuesta alimentaria con enfoque sostenible, mejorar continuamente los productos y promover la conciencia ambiental en la comunidad de Tuluá.</div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Hablemos</span>
+          <h2>¿Quieres conocer más sobre Vegan Food?</h2>
+          <p>Escríbenos para consultar sobre nuestros productos, compartir sugerencias o conocer más sobre el proyecto.</p>
+        </div>
+        <div class="contact-grid">
+          <aside class="contact-info">
+            <h3>Información de contacto</h3>
+            <p>¡Estamos aquí para resolver tus dudas y conocer tus ideas!</p>
+            <div class="contact-line"><div class="contact-icon">📍</div><div><strong>Ubicación</strong><span>Tuluá, Valle del Cauca, Colombia</span></div></div>
+            <div class="contact-line"><div class="contact-icon">📞</div><div><strong>Teléfono / WhatsApp</strong><a href="tel:+573101234567">+57 310 123 4567</a><br><span>Llámanos o escríbenos</span></div></div>
+            <div class="contact-line"><div class="contact-icon">✉️</div><div><strong>Correo electrónico</strong><a href="mailto:veganfood@gmail.com">veganfood@gmail.com</a><br><span>Envíanos un correo</span></div></div>
+            <div class="contact-line"><div class="contact-icon">📱</div><div><strong>Redes sociales</strong><span>Instagram · Facebook · TikTok</span><br><span>@veganfood</span></div></div>
+            <p class="placeholder">¡Juntos por un futuro más verde!</p>
+          </aside>
+          <div>
+            <form id="contactForm">
+              <div class="form-row">
+                <div><label for="name">Nombre completo</label><input id="name" name="name" type="text" placeholder="¿Cómo te llamas?" required></div>
+                <div><label for="email">Correo electrónico</label><input id="email" name="email" type="email" placeholder="nombre@correo.com" required></div>
+              </div>
+              <div><label for="topic">Motivo del mensaje</label>
+                <select id="topic" name="topic" required>
+                  <option value="">Selecciona una opción</option>
+                  <option>Información sobre productos</option>
+                  <option>Alianzas comerciales</option>
+                  <option>Opiniones y sugerencias</option>
+                  <option>Información del proyecto académico</option>
+                  <option>Otro motivo</option>
+                </select>
+              </div>
+              <div><label for="message">Tu mensaje</label><textarea id="message" name="message" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea></div>
+              <button class="btn" type="submit">Preparar mensaje <span>→</span></button>
+              <p class="form-help">Este formulario es una demostración visual: para recibir mensajes reales, debe conectarse a un servicio de formularios o a un servidor.</p>
+              <div class="form-status" id="formStatus" role="status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <span class="eyebrow">Vegan Food</span>
+        <h2>Un cambio en nuestros hábitos puede ser el comienzo de algo mejor.</h2>
+        <p>Elegir alternativas de origen vegetal es una oportunidad para explorar nuevos sabores y reflexionar sobre el impacto de nuestras decisiones.</p>
+        <a class="btn" href="#productos">Explorar productos ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <a class="brand" href="#inicio"><span class="brand-mark">🌿</span><span>VEGAN FOOD<small>ALIMENTACIÓN CON PROPÓSITO</small></span></a>
+      <div class="footer-links"><a href="#nosotros">Nosotros</a><a href="#productos">Productos</a><a href="#sostenibilidad">Sostenibilidad</a><a href="#contacto">Contacto</a></div>
+      <p>© <span id="year"></span> Vegan Food · Proyecto de emprendimiento académico.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const topic = document.getElementById('topic').value;
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Mensaje desde la web Vegan Food: ' + topic);
+      const body = encodeURIComponent('Nombre: ' + name + '\nCorreo: ' + email + '\nMotivo: ' + topic + '\n\nMensaje:\n' + message);
+      const status = document.getElementById('formStatus');
+      status.style.display = 'block';
+      status.textContent = 'El formulario está listo. Para enviar el mensaje por correo, agrega primero el correo oficial de Vegan Food al código de la página.';
+      // Para habilitar el envío, reemplaza CORREO_OFICIAL_AQUI por la dirección real:
+      // window.location.href = 'mailto:CORREO_OFICIAL_AQUI?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
